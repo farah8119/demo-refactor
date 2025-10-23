@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKTech United Sdn Bhd</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!--begin::Accessibility Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <!--end::Accessibility Meta Tags-->
+
+    <!--begin::Primary Meta Tags-->
+    <meta name="title" content="AdminLTE v4 | Dashboard" />
+    <meta name="author" content="ColorlibHQ" />
+    <meta
+      name="description"
+      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS. Fully accessible with WCAG 2.1 AA compliance."
+    />
+    <meta
+      name="keywords"
+      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant"
+    />
+    <!--end::Primary Meta Tags-->
+
+    <!--begin::Accessibility Features-->
+    <!-- Skip links will be dynamically added by accessibility.js -->
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="./styles.css" as="style" />
+    <!--end::Accessibility Features-->
+
+    <!--begin::Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+      crossorigin="anonymous"
+      media="print"
+      onload="this.media='all'"
+    />
+    <!--end::Fonts-->
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/styles/overlayscrollbars.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="./lib/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!-- apexcharts -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
+      integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0="
+      crossorigin="anonymous"
+    />
+
+    <!-- jsvectormap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
+      integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4="
+      crossorigin="anonymous"
+    />
+</head>
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary sidebar-open app-loaded"><div class="skip-links"><a href="#main" class="skip-link">Skip to main content</a><a href="#navigation" class="skip-link">Skip to navigation</a></div>
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body" id="navigation" tabindex="-1">
+        <!--begin::Container-->
+        <div class="container-fluid">
+          <!--begin::Start Navbar Links-->
+          <!-- ** ms-auto (margin-start auto) : sets margin to the right ** -->
+          <img src="./assets/img/akTechLogo.png" alt="AKTech Logo" style="height: 150px; width: auto; margin-right: 15px;" aria-label="Navigation 1"/>
+          <ul class="navbar-nav ms-auto" role="navigation" aria-label="Navigation 2">
+            <!-- THE 3 LINES ICON TOGGLE BUTTON FOR SIDEBAR.
+            <li class="nav-item">
+              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                <i class="bi bi-list"></i>
+              </a>
+            </li> -->
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">About</a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">Solutions</a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">Contact</a>
+            </li>
+          </ul>
+          <!--end::Start Navbar Links-->
+        </div>
+        <!--end::Container-->
+    
+        </div><div class="os-scrollbar os-scrollbar-horizontal os-theme-light os-scrollbar-auto-hide os-scrollbar-handle-interactive os-scrollbar-track-interactive os-scrollbar-cornerless os-scrollbar-unusable os-scrollbar-auto-hide-hidden" style="--os-viewport-percent: 1; --os-scroll-direction: 0;"><div class="os-scrollbar-track"><div class="os-scrollbar-handle"></div></div></div><div class="os-scrollbar os-scrollbar-vertical os-theme-light os-scrollbar-auto-hide os-scrollbar-handle-interactive os-scrollbar-track-interactive os-scrollbar-visible os-scrollbar-cornerless os-scrollbar-auto-hide-hidden" style="--os-viewport-percent: 0.1862; --os-scroll-direction: 0;"><div class="os-scrollbar-track"><div class="os-scrollbar-handle"></div></div></div></div>
+        <!--end::Sidebar Wrapper-->
+      </aside>
+      <!--end::Sidebar-->
+
+      <!--begin::App Main-->
+      <main class="app-main" id="main" tabindex="-1">
+        <div class="app-main-content">
+          <div class="container-fluid"> 
+            <div class="row-mt-4">
+              <!--begin::Form Validation-->
+              <div class="col-md-6 offset-md-3">
+                <div class="card card-info card-outline mb-4">
+                    <!--begin::Header-->
+                    <div class="card-header">
+                      <div class="card-title">Form</div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Form-->
+                    <form class="needs-validation" id="userForm" novalidate>
+                      <!--begin::Body-->
+                      <div class="card-body">
+                        <!--begin::Row-->
+                        <div class="row g-3">
+                          <!--begin::Col-->
+                          <div class="col-md-6 offset-md-3">
+                            <label for="nameValue" class="form-label">Name</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="nameValue"
+                              placeholder="Enter Name"
+                              required
+                            />
+                            <div class="valid-feedback">Looks good!</div>
+                          </div>
+                          <!--end::Col-->
+                          <!--begin::Col-->
+                          <div class="col-md-6 offset-md-3">
+                            <label for="districtValue" class="form-label">District</label>
+                            <select class="form-select" id="districtValue" required>
+                              <option selected disabled value="">Choose...</option>
+                              <option value="Brunei-Muara">Brunei-Muara</option>
+                              <option value="Tutong">Tutong</option>
+                              <option value="Belait">Belait</option>
+                              <option value="Temburong">Temburong</option>
+                            </select>
+                            <!-- <div class="invalid-feedback">Please select a valid district.</div> -->
+                          </div>
+                          <!--end::Col-->
+                          <!--begin::Col-->
+                          <div class="col-md-6 offset-md-3">
+                            <label for="posCodeValue" class="form-label">Pos Code</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="posCodeValue"
+                              placeholder="Enter Pos Code"
+                              required
+                            />
+                            <!-- <div class="invalid-feedback">Please provide a valid Pos Code.</div> -->
+                            <div class="valid-feedback">Looks good!</div>
+                          </div>
+                          <!--end::Col-->
+                          <!--begin::Col-->
+                          <div class="col-md-6 offset-md-3">
+                            <label for="addressValue" class="form-label">Address</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="addressValue"
+                              placeholder="Enter Address"
+                              required
+                            />
+                            <div class="valid-feedback">Looks good!</div>
+                          </div>
+                          <!--end::Col-->
+                          <!--begin::Col-->
+                          <div class="col-md-6 offset-md-3">
+                            <label for="employeeIdValue" class="form-label">Employee ID</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="employeeIdValue"
+                              placeholder="Enter Employee ID"
+                              required
+                            />
+                            <div class="valid-feedback">Looks good!</div>
+                          </div>
+                          <!--end::Col-->
+                        </div>
+                        <!--end::Row-->
+                      </div>
+                      <!--end::Body-->
+                      <!--begin::Footer-->
+                      <div class="card-footer off">
+                        <button class="btn btn-info col-md-6 offset-md-3" type="submit">Submit form</button>
+                      </div>
+                      <!--end::Footer-->
+                    </form>
+                    <!--end::Form-->
+                    <!--begin::JavaScript-->
+                    <script>
+                      // Example starter JavaScript for disabling form submissions if there are invalid fields
+                      (() => {
+                        'use strict';
+
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        const forms = document.querySelectorAll('.needs-validation');
+
+                        // Loop over them and prevent submission
+                        Array.from(forms).forEach((form) => {
+                          form.addEventListener(
+                            'submit',
+                            (event) => {
+                              if (!form.checkValidity()) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                              }
+
+                              form.classList.add('was-validated');
+                            },
+                            false,
+                          );
+                        });
+                      })();
+                    </script>
+                    <!--end::JavaScript-->
+                  </div>
+                  <!--end::Form Validation-->
+              </div>
+            </div>
+            <div class="row-mt-4">
+              <hr class="my-4">
+              <h4 class="text-center">Employee Details</h4>
+              <div id="output" class="mt-3"></div>
+            </div>
+            <!-- TABLE OF INPUTS
+            <div class="row-mt-4">
+              <div class="col-md-6 offset-md-3">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Employee ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">District</th>
+                      <th scope="col">Pos Code</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td id="employeeIdValue"></td>
+                      <td id="nameValue"></td>
+                      <td id="districtValue"></td>
+                      <td id="posCodeValue"></td>
+                      <td id="addressValue"></td>
+                      <td>
+                        <button class="btn btn-sm btn-primary">
+                          <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn btn-sm btn-danger">
+                          <i class="fas fa-trash"></i> Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </main>
+      <!--end::App Main-->
+
+      <!--begin::Footer-->
+      <footer class="app-footer">
+        <!--begin::To the end-->
+        <div class="float-end d-none d-sm-inline">Anything you want</div>
+        <!--end::To the end-->
+        <!--begin::Copyright-->
+        <strong>
+          Copyright © 2014-2025&nbsp;
+          <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+        </strong>
+        All rights reserved.
+        <!--end::Copyright-->
+      </footer>
+      <!--end::Footer-->
+
+    <div class="sidebar-overlay"></div></div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js" crossorigin="anonymous"></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
+    <script src="./lib/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+    <!-- Custom JS File -->
+    <script src="./demo.js"></script>
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+
+        // Disable OverlayScrollbars on mobile devices to prevent touch interference
+        const isMobile = window.innerWidth <= 992;
+
+        if (
+          sidebarWrapper &&
+          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          !isMobile
+        ) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <!--end::OverlayScrollbars Configure-->
+
+    <!-- OPTIONAL SCRIPTS -->
+
+    <!-- sortablejs -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js" crossorigin="anonymous"></script>
+
+    <!-- sortablejs -->
+    <script>
+      new Sortable(document.querySelector('.connectedSortable'), {
+        group: 'shared',
+        handle: '.card-header',
+      });
+
+      const cardHeaders = document.querySelectorAll('.connectedSortable .card-header');
+      cardHeaders.forEach((cardHeader) => {
+        cardHeader.style.cursor = 'move';
+      });
+    </script>
+
+    <!-- apexcharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.min.js" integrity="sha256-+vh8GkaU7C9/wbSLIcwq82tQ2wTf44aOHA8HlBMwRI8=" crossorigin="anonymous"></script>
+
+    <!-- ChartJS -->
+    <script>
+      // NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
+      // IT'S ALL JUST JUNK FOR DEMO
+      // ++++++++++++++++++++++++++++++++++++++++++
+
+      const sales_chart_options = {
+        series: [
+          {
+            name: 'Digital Goods',
+            data: [28, 48, 40, 19, 86, 27, 90],
+          },
+          {
+            name: 'Electronics',
+            data: [65, 59, 80, 81, 56, 55, 40],
+          },
+        ],
+        chart: {
+          height: 300,
+          type: 'area',
+          toolbar: {
+            show: false,
+          },
+        },
+        legend: {
+          show: false,
+        },
+        colors: ['#0d6efd', '#20c997'],
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: 'smooth',
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: [
+            '2023-01-01',
+            '2023-02-01',
+            '2023-03-01',
+            '2023-04-01',
+            '2023-05-01',
+            '2023-06-01',
+            '2023-07-01',
+          ],
+        },
+        tooltip: {
+          x: {
+            format: 'MMMM yyyy',
+          },
+        },
+      };
+
+      const sales_chart = new ApexCharts(
+        document.querySelector('#revenue-chart'),
+        sales_chart_options,
+      );
+      sales_chart.render();
+    </script>
+
+    <!-- jsvectormap -->
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/js/jsvectormap.min.js" integrity="sha256-/t1nN2956BT869E6H4V1dnt0X5pAQHPytli+1nTZm2Y=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/maps/world.js" integrity="sha256-XPpPaZlU8S/HWf7FZLAncLg2SAkP8ScUTII89x9D3lY=" crossorigin="anonymous"></script>
+
+    <!-- jsvectormap -->
+    <script>
+      // World map by jsVectorMap
+      new jsVectorMap({
+        selector: '#world-map',
+        map: 'world',
+      });
+
+      // Sparkline charts
+      const option_sparkline1 = {
+        series: [
+          {
+            data: [1000, 1200, 920, 927, 931, 1027, 819, 930, 1021],
+          },
+        ],
+        chart: {
+          type: 'area',
+          height: 50,
+          sparkline: {
+            enabled: true,
+          },
+        },
+        stroke: {
+          curve: 'straight',
+        },
+        fill: {
+          opacity: 0.3,
+        },
+        yaxis: {
+          min: 0,
+        },
+        colors: ['#DCE6EC'],
+      };
+
+      const sparkline1 = new ApexCharts(document.querySelector('#sparkline-1'), option_sparkline1);
+      sparkline1.render();
+
+      const option_sparkline2 = {
+        series: [
+          {
+            data: [515, 519, 520, 522, 652, 810, 370, 627, 319, 630, 921],
+          },
+        ],
+        chart: {
+          type: 'area',
+          height: 50,
+          sparkline: {
+            enabled: true,
+          },
+        },
+        stroke: {
+          curve: 'straight',
+        },
+        fill: {
+          opacity: 0.3,
+        },
+        yaxis: {
+          min: 0,
+        },
+        colors: ['#DCE6EC'],
+      };
+
+      const sparkline2 = new ApexCharts(document.querySelector('#sparkline-2'), option_sparkline2);
+      sparkline2.render();
+
+      const option_sparkline3 = {
+        series: [
+          {
+            data: [15, 19, 20, 22, 33, 27, 31, 27, 19, 30, 21],
+          },
+        ],
+        chart: {
+          type: 'area',
+          height: 50,
+          sparkline: {
+            enabled: true,
+          },
+        },
+        stroke: {
+          curve: 'straight',
+        },
+        fill: {
+          opacity: 0.3,
+        },
+        yaxis: {
+          min: 0,
+        },
+        colors: ['#DCE6EC'],
+      };
+
+      const sparkline3 = new ApexCharts(document.querySelector('#sparkline-3'), option_sparkline3);
+      sparkline3.render();
+    </script>
+    <!--end::Script-->
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+  
+
+<div id="live-region" class="live-region" aria-live="polite" aria-atomic="true" role="status"></div><svg id="SvgjsSvg1273" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1274"></defs><polyline id="SvgjsPolyline1275" points="0,0"></polyline><path id="SvgjsPath1276" d="M-1 50L-1 50L10.399999999999999 50L20.799999999999997 50L31.2 50L41.599999999999994 50L52 50L62.4 50L72.8 50L83.19999999999999 50L93.6 50L104 50C104 50 104 50 104 50 "></path></svg><div class="jvm-tooltip"></div></body>
+</html>
+
+<!-- header,sidebar,footer -->
+<!-- add css and javascript in this file -->
