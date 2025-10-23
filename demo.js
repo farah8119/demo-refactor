@@ -1,44 +1,48 @@
 $(document).ready(function () { // Ensure DOM is fully loaded before running JS code. DOM Readiness: when webpage loads, the browsser first parses(analyzing and converting a program into an internal format that a runtime environment can actually run) the HTML to create DOM tree. JS code that attempts to interact with or modify elements in the DOM before it's fully constructed will encounter errors.
     // The Document Object Model (DOM) in JavaScript is a programming interface for web documents. It represents the structure of an HTML or XML document as a tree of objects, allowing JavaScript to interact with and manipulate the content, structure, and style of a web page. 
     // Create array that stores multiple data after user submit
-    let userData = [];  // let : variable that can be reassigned later; mutable. if use LET here(array variable - []), it'll clear or replace entire list.
+    const userData = [];  // let : variable that can be reassigned later; mutable. if use LET here(array variable - []), it'll clear or replace entire list.
     let editIndex = null; // const : variable that CANNOT be reassigned later; immutable. if use CONST here(array variable - []), it is recommended to use CONST if wanting to store growing list of users.
     // !! KEEP IN MIND !!
     // 'const' : If want to mutate(ONLY THESE ARE POSSIBLE: push/pop/splice) but not reassign the variable itself
     // 'let' : If want to reassign the variable itself (e.g. replace the entire array/object with a new one)
     // 'var' : Avoid using 'var' in modern JS due to its function scope and hoisting behavior, which can lead to unexpected results. Prefer 'let' and 'const' for block-scoped variables. (JS FOR OLDER BROWSERS; old legacy JS code, not recommended for modern code)
     
+    // 1. Create list of the unique input IDs
+    const inputIds = ['nameValue', 'districtValue', 'poscodeValue', 'addressValue', 'employeeIdValue'];
     // Handles form submission
     $('#userForm').submit(function (event) { // .submit() vs .click(): explained in line 127
         event.preventDefault(); // Prevent page refresh
+        
+        // REFACTORED CODE FOR READING INPUT ELEMENTS IN id='userForm' WITH UNIQUE ID
 
-        // Read Input Values. 
-        // Usually we use 'const' for variables that won't be reassigned later(in this case); immutable
-        const name = $('#nameValue').val();
-        const district = $('#districtValue').val();
-        const poscode = $('#posCodeValue').val();
-        const address = $('#addressValue').val();
-        const employeeId = $('#employeeIdValue').val();
+        // 2. Object to hold one user's data
+        const newEntry = {};
+
+        // 3. Loop through each ID to READ it's value
+        for (let i=0; i < inputIds.length; i++){
+            const id = inputIds[i];
+            const value = $(`#${id}`).val().trim(); // example --- #name : CSS Selector targeting element with id='name'. $() : a jQuery function that returns a jQuery object, representing that HTML element
+            newEntry[id] = value;
+        }
 
         // Validate Fields; check if any field is empty
-        if (!name || !district || !poscode || !address || !employeeId) {
+        if (!newEntry.nameValue || !newEntry.districtValue || !newEntry.poscodeValue || !newEntry.addressValue || !newEntry.employeeIdValue) {
             alert('Please fill in all fields.');
             return;
-        }
+        } 
+    
+        // Check if in Add Mode or Edit Mode
+        if (editIndex === null) { // why 3 equals ? explained in line 
+            // Add/push New Data to Array
+            userData.push(newEntry);
+        } 
 
-        // Create User Object; Store Data in Object
-        const user = {name, district, poscode, address, employeeId}; // data type changing?
-
-        if (editIndex === null) { // why 3 equals ? explained in line 149
-            // Add New Data; data to Array
-            userData.push(user);
-        } else {
-            // Update Existing Data
-            userData[editIndex] = user;
-            editIndex = null; // Reset edit index
-            $('#userForm button[type="submit"]').text('Submit'); // Change button text back to Submit
-        }
-
+        // Update Existing Data
+        userData[editIndex] = newEntry;
+        editIndex = null; // Reset edit index
+        $('#userForm button[type="submit"]').text('Submit'); // Change button text back to Submit
+        
         // Clear Form Fields
         $('#userForm')[0].reset();
 
@@ -49,12 +53,12 @@ $(document).ready(function () { // Ensure DOM is fully loaded before running JS 
 
     // Function to display all submitted data
     function displayData() {
-        let output = ''; // declare empty string variable to hold HTML content
+        let output = ''; // declare empty string variable to hold HTML content. extra info: when i use 'const', table does not show up in website. this is because CONST is only used if element gonna be included/displayed in website's first load. table/element pops up ONLY after clicking button = use 'LET'. const will give error!
         if (userData.length === 0) { // keep in mind, triple equals (===) checks for both value and type equality
             output = '<p>No data submitted yet.</p>';
         } else {
             // output = output + values
-            // backticks (`) — they let you write multi-line strings and embed variables easily later using ${...}.
+            // backticks (``) — they let you write multi-line strings and embed variables easily later using ${...}.
             output += ` 
                 <!-- TABLE OF DATA INPUTS -->
                 <div class="row-mt-4">
@@ -74,14 +78,14 @@ $(document).ready(function () { // Ensure DOM is fully loaded before running JS 
                             
                 `;
             // userData.forEach(...) : explained in line 193
-            userData.forEach((user, index) => {
+            userData.forEach((newEntry, index) => {
                 output += `
                     <tr>
-                        <td>${user.employeeId}</td>
-                        <td>${user.name}</td>
-                        <td>${user.district}</td>
-                        <td>${user.poscode}</td>
-                        <td>${user.address}</td>
+                        <td>${newEntry.employeeIdValue}</td>
+                        <td>${newEntry.nameValue}</td>
+                        <td>${newEntry.districtValue}</td>
+                        <td>${newEntry.poscodeValue}</td>
+                        <td>${newEntry.addressValue}</td>
                         <td>
                             <button class="btn btn-sm btn-primary edit-button" data-index="${index}">
                             <i class="fas fa-edit"></i> Edit
@@ -106,20 +110,18 @@ $(document).ready(function () { // Ensure DOM is fully loaded before running JS 
         // Why delegation? Because .edit-button elements are added dynamically (new table rows), binding to the container ensures clicks on newly created buttons are caught. If you used $('.edit-button').click(...) that binding would miss future elements added later.
         // below code function explained more in line 241
         $('#output').on('click', '.edit-button', function () {
-        const index = $(this).data('index');
-        const user = userData[index];
+            const index = $(this).data('index');
+            const user = userData[index];
 
-        // Populate form fields with existing data
-        // piece of code explained more in line 248
-        $('#nameValue').val(user.name);
-        $('#districtValue').val(user.district);
-        $('#posCodeValue').val(user.poscode);
-        $('#addressValue').val(user.address);
-        $('#employeeIdValue').val(user.employeeId);
+            for (let i=0; i < inputIds.length; i++){
+                const id = inputIds[i];
+                const value = user[id]; // get value from object
+                $(`#${id}`).val(value); // set value to input
+            }
 
-        // Set edit mode
-        editIndex = index;
-        $('#userForm button[type="submit"]').text('Update'); // Change button text to Update
+            // Set edit mode
+            editIndex = index;
+            $('#userForm button[type="submit"]').text('Update'); // Change button text to Update
     });
 
     $('#output').on('click', '.delete-button', function () {
